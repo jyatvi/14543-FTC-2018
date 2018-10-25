@@ -13,14 +13,16 @@ public class Drive extends OpMode
     private Mecanum m = null;
     private Hang h = null;
     private Arm a = null;
-
+    private DcMotor backLeft = null;
+    private DcMotor backRight = null;
+    private DcMotor frontLeft = null;
+    private DcMotor frontRight = null;
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
         telemetry.addData("Status", "Initialized");
-	DCMotor frontLeft, frontRight, backLeft, backRight;
 	frontLeft=hardwareMap.dcMotor.get("frontLeft"); 
         frontRight=hardwareMap.dcMotor.get("frontRight"); 
         backLeft=hardwareMap.dcMotor.get("backLeft"); 
