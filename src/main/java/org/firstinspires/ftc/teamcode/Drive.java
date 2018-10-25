@@ -20,7 +20,11 @@ public class Drive extends OpMode
     @Override
     public void init() {
         telemetry.addData("Status", "Initialized");
-
+	    DCMotor frontLeft, frontRight, backLeft, backRight;
+	    frontLeft=hardwareMap.dcMotor.get("frontLeft"); 
+        frontRight=hardwareMap.dcMotor.get("frontRight"); 
+        backLeft=hardwareMap.dcMotor.get("backLeft"); 
+	    backRight=hardwareMap.dcMotor.get("backRight"); 
         //initialize all mechanisms
         m = new Mecanum(hardwareMap);
         h = new Hang(hardwareMap);
@@ -46,6 +50,7 @@ public class Drive extends OpMode
         move();
         hang();
         arm();
+        dPadMove();
     }
     private void arm(){
         if(gamepad2.right_trigger>.2){
@@ -74,6 +79,31 @@ public class Drive extends OpMode
     private void move(){
         m.move(gamepad1);
     }
+    //runs motor when corresponding part of dPad is pressed. (I think most of this is wrong...? But I'll keep working today and tomorrow.)
+    private void dpadMove(){
+       
+       
+        if(gamepad1.dpad_front && gamepad1.dpad_left){
+            
+            frontLeft.setPower(1.0);
+         
+        }
+        else if(gamepad1.dpad_front && gamepad1.dpad_right){
+           
+            
+             frontRight.setPower(1.0);
+   
+        }
+        else if(gamepad1.dpad_back  && gamepad1.dpad_left){
+             
+             backLeft.setPower(1.0);
+         }
+       else if((gamepad1.dpad_back) && (gamepad1.dpad_right)){
+	         backRight.setPower(1.0);
+
+       }
+   }
+    
     /*
      * Code to run ONCE after the driver hits STOP
      */
