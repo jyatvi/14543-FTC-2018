@@ -20,11 +20,11 @@ public class Drive extends OpMode
     @Override
     public void init() {
         telemetry.addData("Status", "Initialized");
-	    DCMotor frontLeft, frontRight, backLeft, backRight;
-	    frontLeft=hardwareMap.dcMotor.get("frontLeft"); 
+	DCMotor frontLeft, frontRight, backLeft, backRight;
+	frontLeft=hardwareMap.dcMotor.get("frontLeft"); 
         frontRight=hardwareMap.dcMotor.get("frontRight"); 
         backLeft=hardwareMap.dcMotor.get("backLeft"); 
-	    backRight=hardwareMap.dcMotor.get("backRight"); 
+	backRight=hardwareMap.dcMotor.get("backRight"); 
         //initialize all mechanisms
         m = new Mecanum(hardwareMap);
         h = new Hang(hardwareMap);
@@ -89,8 +89,7 @@ public class Drive extends OpMode
          
         }
         else if(gamepad1.dpad_front && gamepad1.dpad_right){
-           
-            
+          
              frontRight.setPower(1.0);
    
         }
@@ -99,7 +98,8 @@ public class Drive extends OpMode
              backLeft.setPower(1.0);
          }
        else if((gamepad1.dpad_back) && (gamepad1.dpad_right)){
-	         backRight.setPower(1.0);
+       
+	     backRight.setPower(1.0);
 
        }
    }
