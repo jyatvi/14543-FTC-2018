@@ -81,30 +81,7 @@ public class Drive extends OpMode
     private void move(){
         m.move(gamepad1);
     }
-    //runs motor when corresponding part of dPad is pressed. (I think most of this is wrong...? But I'll keep working today and tomorrow.)
-    private void dpadMove(){
-       
-       
-        if(gamepad1.dpad_front && gamepad1.dpad_left){
-            
-            frontLeft.setPower(1.0);
-         
-        }
-        else if(gamepad1.dpad_front && gamepad1.dpad_right){
-          
-             frontRight.setPower(1.0);
-   
-        }
-        else if(gamepad1.dpad_back  && gamepad1.dpad_left){
-             
-             backLeft.setPower(1.0);
-         }
-       else if((gamepad1.dpad_back) && (gamepad1.dpad_right)){
-       
-	     backRight.setPower(1.0);
 
-       }
-   }
     
     /*
      * Code to run ONCE after the driver hits STOP
