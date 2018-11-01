@@ -82,6 +82,66 @@ public class Drive extends OpMode
         m.move(gamepad1);
     }
 
+    private void dpadMove(){
+       
+       
+        if(gamepad1.dpad_up){
+            
+            frontLeft.setPower(0.4);
+	    frontRight.setPower(0.4);
+	    backLeft.setPower(0.4);
+	    backRight.setPower(0.4);
+         
+        }
+        else if(gamepad1.dpad_down){
+           
+            
+            frontLeft.setPower(-0.4);
+	    frontRight.setPower(-0.4);
+	    backLeft.setPower(-0.4);
+	    backRight.setPower(-0.4);
+   
+        }
+        else if(gamepad1.dpad_left){
+             
+            frontLeft.setPower(0.4);
+	    frontRight.setPower(-0.4);
+	    backLeft.setPower(-0.4);
+	    backRight.setPower(+0.4);
+	
+         }
+	
+       else if(gamepad1.dpad_right){
+
+             
+            frontLeft.setPower(-0.4);
+	    frontRight.setPower(+0.4);
+	    backLeft.setPower(+0.4);
+	    backRight.setPower(-0.4);
+	
+         }
+         else if(gamepad1.dpad_up and gamepad1.dpad_right){
+
+             
+            frontLeft.setPower(0.4);
+	    frontRight.setPower(0.4);
+	    backLeft.setPower(-0.4);
+	    backRight.setPower(-0.4);
+	
+         }
+         else if(gamepad1.dpad_up and gamepad1.dpad_left){
+
+             
+            frontLeft.setPower(-0.4);
+	    frontRight.setPower(-0.4);
+	    backLeft.setPower(+0.4);
+	    backRight.setPower(+0.4);
+	
+         }
+
+
+       }
+   }
     
     /*
      * Code to run ONCE after the driver hits STOP
